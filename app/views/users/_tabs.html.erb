@@ -1,0 +1,32 @@
+<ul class="list-inline tabs-underlined">
+  <li>
+    <%= link_to dashboard_user_path(current_user), class: "tab-underlined active" do %>
+      Dashboard
+    <% end %>
+  </li>
+  <li>
+    <%= link_to hobbies_user_path(current_user), class: "tab-underlined" do %>
+      My Hobbs
+    <% end %>
+  </li>
+  <li>
+    <%= link_to deck_user_path(current_user), class: "tab-underlined" do %>
+      Hobbs Deck
+    <% end %>
+  </li>
+  <li>
+    <%= link_to requests_user_path(current_user), class: "tab-underlined" do %>
+      Requests <span class="badge badge-pill badge-dark">1</span>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to skillset_user_path(current_user), class: "tab-underlined" do %>
+      Skill Set
+    <% end %>
+  </li>
+  <li>
+    <%= link_to user_path(@user), class: "tab-underlined" do %>
+      Profile
+    <% end %>
+  </li>
+</ul>
