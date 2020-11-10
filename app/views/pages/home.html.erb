@@ -1,4 +1,6 @@
-
+<% if user_signed_in? %>
+  <p>Hello <%= current_user.username %></p>
+<% end %>
 <h2 class="my-3">Breadcrumbs:</h2>
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
@@ -187,4 +189,3 @@
     </a>
   </div>
 </div>
-
