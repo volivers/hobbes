@@ -15,7 +15,8 @@
     <!-- if current user show one navbar else show another-->
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <%= link_to "#", class: "navbar-brand" do %>
-        <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+        <% image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png"%>
+        <span class="logo">HOBBS</span>
       <% end %>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,8 +42,9 @@
         </ul>
       </div>
     </div>
-
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
     <footer>
       <div class="footer">
         <div class="footer-links">

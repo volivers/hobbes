@@ -1,13 +1,5 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-  <div class="container">
-    <h1>HOBBS connects <strong>hobby seekers</strong> to <strong>hobby masters</strong>!</h1>
-    <p>Find the Hobbs to your Calvin.</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
-  </div>
-</div>
 
-<h2 class="my-3">BREADCRUMBS:</h2>
-<p>https://getbootstrap.com/docs/4.5/components/breadcrumb/</p>
+<h2 class="my-3">Breadcrumbs:</h2>
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -16,56 +8,163 @@
   </ol>
 </nav>
 
-
-<h1>For User Dashboard</h1>
-
-<h2 class="my-3">TABS:</h2>
+<h2 class="my-3">Tabs:</h2>
 <ul class="list-inline tabs-underlined">
   <li>
-    <a href="#" class="tab-underlined active">Dashboard</a>
+    <%= link_to "#", class: "tab-underlined active" do %>
+      Dashboard
+    <% end %>
   </li>
   <li>
-    <a href="#" class="tab-underlined">My Hobbs</a>
+    <%= link_to "#", class: "tab-underlined" do %>
+      My Hobbs
+    <% end %>
   </li>
   <li>
-    <a href="#" class="tab-underlined">Requests <span class="badge badge-pill badge-dark">1</span></a>
+    <%= link_to "#", class: "tab-underlined" do %>
+      Hobbs Deck
+    <% end %>
   </li>
   <li>
-    <a href="#" class="tab-underlined">Manage Skill Set</a>
+    <%= link_to "#", class: "tab-underlined" do %>
+      Requests <span class="badge badge-pill badge-dark">1</span>
+    <% end %>
   </li>
   <li>
-    <a href="#" class="tab-underlined">Settings</a>
+    <%= link_to "#", class: "tab-underlined" do %>
+      Skill Set
+    <% end %>
+  </li>
+  <li>
+    <%= link_to "#", class: "tab-underlined" do %>
+      Settings
+    <% end %>
   </li>
 </ul>
 
-<h2 class="my-3">NOTIFICATIONS:</h2>
+
+<h2 class="my-3">Search Form:</h2>
+<%= simple_form_for :search, url: root_path, method: :get do |f| %>
+  <div class="search-form-control form-group">
+    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+    <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i> Search
+    </button>
+  </div>
+<% end %>
+
+
+<h2 class="my-3">Notifications:</h2>
+
 <div class="notification">
   <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+
   <div class="notification-content">
     <p><small>14th January</small></p>
     <p>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipisicing elit.</p>
   </div>
 
   <div class="notification-actions">
-    <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
-    <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+    <%= link_to "#" do%>
+      Edit <i class="fas fa-pencil-alt"></i>
+    <% end %>
+    <%= link_to "#" do%>
+      Delete <i class="far fa-trash-alt"></i>
+    <% end %>
   </div>
 </div>
 
 <div class="notification">
   <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
+
   <div class="notification-content">
     <p><small>9th January</small></p>
     <p>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipisicing elit.</p>
   </div>
 
   <div class="notification-actions">
-    <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
-    <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+    <%= link_to "#" do%>
+      Edit <i class="fas fa-pencil-alt"></i>
+    <% end %>
+    <%= link_to "#" do%>
+      Delete <i class="far fa-trash-alt"></i>
+    <% end %>
+  </div>
+
+</div>
+
+<h2 class="my-3">Actions V1</h2>
+  <div class="notification-actions">
+    <%= link_to "#", class: "btn btn-ghost" do%>
+      Edit <i class="fas fa-pencil-alt"></i>
+    <% end %>
+    <%= link_to "#", class: "btn btn-ghost" do%>
+      Delete <i class="far fa-trash-alt"></i>
+    <% end %>
+    <%= link_to "#", class: "btn btn-ghost" do%>
+      Add New <i class="fas fa-plus"></i>
+    <% end %>
+    <%= link_to "#", class: "btn btn-ghost" do%>
+      Save <i class="fas fa-save"></i>
+    <% end %>
+    <%= link_to "#", class: "btn btn-ghost" do%>
+      Show <i class="fas fa-eye"></i>
+    <% end %>
+  </div>
+
+<h2 class="my-3">Actions V1 small</h2>
+<div class="notification-actions">
+  <%= link_to "#", class: "btn btn-ghost btn-sm" do%>
+      Edit <i class="fas fa-pencil-alt"></i>
+  <% end %>
+  <%= link_to "#", class: "btn btn-ghost btn-sm" do%>
+      Delete <i class="far fa-trash-alt"></i>
+  <% end %>
+  <%= link_to "#", class: "btn btn-ghost btn-sm" do%>
+      Add New <i class="fas fa-plus"></i>
+  <% end %>
+  <%= link_to "#", class: "btn btn-ghost btn-sm" do%>
+      Save <i class="fas fa-save"></i>
+  <% end %>
+  <%= link_to "#", class: "btn btn-ghost btn-sm" do%>
+      Show <i class="fas fa-eye"></i>
+  <% end %>
+</div>
+
+<h2 class="my-3">Actions V2</h2>
+<div class="notification">
+  <div class="notification-actions">
+    <%= link_to "#" do%>
+      Edit <i class="fas fa-pencil-alt"></i>
+    <% end %>
+    <%= link_to "#" do%>
+      Delete <i class="far fa-trash-alt"></i>
+    <% end %>
+    <%= link_to "#" do%>
+      Add New <i class="far fa-trash-alt"></i>
+    <% end %>
+    <%= link_to "#" do%>
+      Save <i class="fas fa-save"></i>
+    <% end %>
+    <%= link_to "#" do%>
+      Show <i class="fas fa-eye"></i>
+    <% end %>
   </div>
 </div>
 
-<h2 class="my-3">ALERT</h2>
+<h2 class="my-3">Buttons</h2>
+<%= link_to "Write a story", "#", class: "btn btn-ghost" %>
+<%= link_to "Book now", "#", class: "btn btn-flat" %>
+<%= link_to "Start now", "#", class: "btn btn-gradient" %>
+
+<h2 class="my-3">Avatars</h2>
+<%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
+<%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
+<%= image_tag "https://kitt.lewagon.com/placeholder/users/sarahlafer", class: "avatar-bordered", alt: "avatar-bordered" %>
+<%= image_tag "https://kitt.lewagon.com/placeholder/users/krokrob", class: "avatar-square", alt: "avatar-square" %>
+
+
+<h2 class="my-3">Alerts</h2>
 <div class="alert-container">
   <div class="flash flash-success alert alert-dismissible fade show" role="alert">
     <span><strong>Yay!</strong> 🎉 you successfully signed in to our service.</span>
@@ -88,5 +187,4 @@
     </a>
   </div>
 </div>
-
 
