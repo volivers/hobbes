@@ -10,11 +10,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body>                 
+  <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <!-- if current user show one navbar else show another-->
-    <div class="main-container">
+    <div class="main-container container my-4">
       <%= yield %>
     </div>
     <%= render 'shared/footer' %>

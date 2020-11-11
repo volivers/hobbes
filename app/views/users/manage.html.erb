@@ -1,0 +1,24 @@
+
+
+<%= render "tabs" %>
+<div class="container">
+  <h2>Edit <%= @user.username.to_s.humanize %></h2>
+  <%= simple_form_for(@user, url: update_fields_users_url) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :bio, required: true, autofocus: true, as: :text, :input_html => { class: 'test', :cols => 5, :rows => 10 } %>
+      <%= f.input :location, autofocus: true, input_html: { autocomplete: "location" } %>
+
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Update", class: "btn btn-ghost btn-sm"  %>
+    </div>
+  <% end %>
+
+  <%= link_to "Back", :back %>
+</div>
+
+
+
