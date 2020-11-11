@@ -32,3 +32,20 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 });
+// const list = document.querySelector("#players");
+//const element = list.querySelector(".red");
+
+// document.addEventListener('tab-underlined', () => {
+
+// })
+
+const tabs = document.querySelectorAll("ul.tabs-underlined li a");
+tabs.forEach((tab) => {
+  tab.classList.toggle("active");
+  console.log(tab);
+});
+
+
+element.addEventListener(eventType, (event) => {
+  // Do something (callback)
+});
