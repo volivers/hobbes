@@ -1,2 +1,48 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Library</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Data</li>
+  </ol>
+</nav>
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-12 col-sm-8 col-md-4 offset-sm-2 offset-md-4">
+      <h2 class="mb-4">Confirmation and reservation</h2>
+
+
+
+
+
+<%= simple_form_for @booking do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :time_slot,
+                      required: true,
+                      autofocus: true
+                      %>
+          <%= f.input :hobby_id,
+                      value: 1,
+                      autofocus: true
+                      %>
+
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Make a request", class: 'btn btn-primary w-100 mb-2' %>
+
+
+
+        </div>
+      <% end %>
+
+
+
+
+
+
+
+
