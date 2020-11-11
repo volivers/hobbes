@@ -1,32 +1,22 @@
 <ul class="list-inline tabs-underlined">
   <li>
-    <%= link_to dashboard_user_path(current_user), class: "tab-underlined active" do %>
-      Dashboard
+    <%= link_to profile_users_path, class: "tab-underlined active" do %>
+      Profile
     <% end %>
   </li>
   <li>
-    <%= link_to hobbies_user_path(current_user), class: "tab-underlined" do %>
-      My Hobbs
+    <%= link_to hobbies_users_path, class: "tab-underlined" do %>
+      My Hobbies
     <% end %>
   </li>
   <li>
-    <%= link_to deck_user_path(current_user), class: "tab-underlined" do %>
+    <%= link_to deck_users_path, class: "tab-underlined" do %>
       Hobbs Deck
     <% end %>
   </li>
   <li>
-    <%= link_to requests_user_path(current_user), class: "tab-underlined" do %>
+    <%= link_to requests_users_path, class: "tab-underlined" do %>
       Requests <span class="badge badge-pill badge-dark">1</span>
-    <% end %>
-  </li>
-  <li>
-    <%= link_to skillset_user_path(current_user), class: "tab-underlined" do %>
-      Skill Set
-    <% end %>
-  </li>
-  <li>
-    <%= link_to user_path(@user), class: "tab-underlined" do %>
-      Profile
     <% end %>
   </li>
 </ul>
