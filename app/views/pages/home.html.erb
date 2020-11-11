@@ -1,5 +1,6 @@
 <% if user_signed_in? %>
   <p>Hello <%= current_user.username %></p>
+  <p>Hello <%= current_user.id %></p>
 <% end %>
 <h2 class="my-3">Breadcrumbs:</h2>
 <nav aria-label="breadcrumb">
