@@ -1,18 +1,61 @@
 <%= render "tabs" %>
 <div class="container">
   <div class="row mt-5">
-    <div class="col-1">
-      <%= link_to "#", class: "btn btn-ghost" do %>
-        <img src="app/assets/images/icons/add_full.svg" alt="">
+    <div class="col-2 col-lg-1">
+      <%= link_to "#", class: "btn btn-hobby" do %>
+        <%= image_tag "icons/add.svg" %>
       <% end %>
     </div>
-    <div class="col-6">
-      <h1><%= current_user.username %></h1>
-      <span><%= current_user.location %></span>
-      <br>
-      <span class="text-lg-left"><%= current_user.bio %></span>
+    <div class="col-6 col-lg-7">
+      <div class="cards-hobby">
+        <div class="card-hobby">
+          <div class="card-hobby-top">
+            <span class="badge badge-pill badge-lvl-one">Rookie</span>
+            <div class="card-hobby-team">
+              <%= image_tag "avatars/Avatar_6.jpg", class: "card-trip-user avatar-bordered" %>
+              <%= image_tag "avatars/Avatar_5.jpg", class: "card-trip-user avatar-bordered" %>
+            </div>
+          </div>
+          <div class="card-hobby-bottom">
+            <p>Remote</p>
+            <h6>Thu, Weekly</h6>
+            <h4>Chess</h4>
+          </div>
+        </div>
+        <div class="card-hobby">
+          <div class="card-hobby-top">
+            <span class="badge badge-pill badge-lvl-two">Good</span>
+            <div class="card-hobby-team">
+              <%= image_tag "avatars/Avatar_6.jpg", class: "card-trip-user avatar-bordered" %>
+              <%= image_tag "avatars/Avatar_4.jpg", class: "card-trip-user avatar-bordered" %>
+              <%= image_tag "avatars/Avatar_5.jpg", class: "card-trip-user avatar-bordered" %>
+            </div>
+          </div>
+          <div class="card-hobby-bottom">
+            <p>Stoke Newington, London</p>
+            <h6>Sat, Monthly</h6>
+            <h4>Traking</h4>
+          </div>
+        </div>
+        <div class="card-hobby">
+          <div class="card-hobby-top">
+            <span class="badge badge-pill badge-lvl-three">Master</span>
+            <div class="card-hobby-team">
+              <%= image_tag "avatars/Avatar_6.jpg", class: "card-trip-user avatar-bordered" %>
+              <%= image_tag "avatars/Avatar_4.jpg", class: "card-trip-user avatar-bordered" %>
+              <%= image_tag "avatars/Avatar_5.jpg", class: "card-trip-user avatar-bordered" %>
+            </div>
+          </div>
+          <div class="card-hobby-bottom">
+            <p>Hackney, London</p>
+            <h6>Thu, Weekly</h6>
+            <h4>Chess</h4>
+          </div>
+        </div>
+
+      </div>
     </div>
-    <div class="col-5">
+    <div class="col-4">
       <div class="card-profile">
         <img class="avatar-large p-2" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
         <div class="card-profile-infos">

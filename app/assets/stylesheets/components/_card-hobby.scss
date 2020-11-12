@@ -1,0 +1,215 @@
+.cards-hobby {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards-hobby {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards-hobby {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards-hobby {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards-hobby {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards-hobby {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+/////
+
+.card-hobby {
+  background-size: cover;
+  background-position: center;
+  background-color: $white;
+  height: 180px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  font-weight: bold;
+  border-radius: 2px;
+  position: relative;
+  color: #4A4A4A;
+  border: 1px solid rgba($black, 0.25);
+
+  a {
+    font-size: 22px;
+    color: white;
+    margin-left: 20px;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 1.2em;
+    font-weight: 400;
+    margin: 0 20px 10px 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+    margin-left: 0;
+  }
+
+}
+
+// Smallest device
+// @media (min-width: 100px) and (max-width: 575px) {
+//   .card-hobby {
+//     grid-template-columns: 1fr;
+//   }
+// }
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .card-hobby {
+    height: 300px;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .card-hobby {
+    height: 200px;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .card-hobby {
+    height: 240px;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .card-hobby {
+    height: 220px;
+  }
+}
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) {
+//   .card-hobby {
+//     grid-template-columns: 1fr 1fr;
+//   }
+// }
+
+// // Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) {
+//   .card-hobby {
+//     grid-template-columns: 1fr 1fr 1fr;
+//   }
+// }
+
+.btn-hobby {
+  color: #4A4A4A;
+  border: 1px solid rgba($black, 0.25);
+  padding: 8px 24px;
+  border-radius: 2px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  // box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  //flex: 0 0 8.3333333333%;
+  //max-width: 8.3333333333%;
+
+}
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .btn-hobby {
+    width: 60px;
+    height: 60px;
+  }
+}
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .btn-hobby {
+    width: 80px;
+    height: 80px;
+  }
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .btn-hobby {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .btn-hobby {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+
+.btn-hobby:hover {
+  opacity: 1;
+}
+
+.card-hobby {
+
+  h1,h2,h3,h4,h5,h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .card-hobby-bottom {
+    span {
+      font-size: 0.7rem;
+    }
+
+    h6 {
+      color: rgba($black, 0.25);
+    }
+  }
+
+}
+
+.card-badge  {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.card-hobby-team {
+  position: absolute;
+  top: 10px;
+  right: 40px;
+
+  img {
+    margin-right: -30px;
+    cursor: pointer;
+    object-fit: none;
+  }
+}
