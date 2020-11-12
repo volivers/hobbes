@@ -9,7 +9,7 @@
     <div class="ml-2">
       <%# Just realized we're picking up the current_user location
       and not the host's location, needs rework in the afternoon :( %>
-      <p><i class="fas fa-map-marker-alt"></i> <%= @user.location %>
+      <%# <p><i class="fas fa-map-marker-alt"></i> <%= @user.location %>
       <p><i class="fas fa-ghost"></i> Hosted by </p> <%# Should we include this info? TBD %>
       <p><i class="fas fa-users"></i> <%= @hobby.occupancy_limit %> spots left</p> <%# This is just wrong. %>
     </div>
