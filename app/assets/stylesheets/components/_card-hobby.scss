@@ -111,19 +111,7 @@
     height: 220px;
   }
 }
-// // Large devices (desktops, 992px and up)
-// @media (min-width: 992px) {
-//   .card-hobby {
-//     grid-template-columns: 1fr 1fr;
-//   }
-// }
 
-// // Extra large devices (large desktops, 1200px and up)
-// @media (min-width: 1200px) {
-//   .card-hobby {
-//     grid-template-columns: 1fr 1fr 1fr;
-//   }
-// }
 
 .btn-hobby {
   color: #4A4A4A;
@@ -137,6 +125,7 @@
   height: 60px;
   display: flex;
   justify-content: center;
+  box-shadow: inset 0 0 15px rgba(255,255, 255, 1);
   // box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   //flex: 0 0 8.3333333333%;
   //max-width: 8.3333333333%;

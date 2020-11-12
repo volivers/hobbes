@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def profile
     $levels = [['Rookie', '1'], ['Good', '2'], ['Master', '3']];
-        $categories = [['Hiking'], ['Backpacking'], ['Camping'], ['Hunting'], ['Fishing'], ['Archery'],['Canoeing'],
+    $categories = [['Hiking'], ['Backpacking'], ['Camping'], ['Hunting'], ['Fishing'], ['Archery'],['Canoeing'],
     ['Kayaking'], ['Running'], ['Geocaching'], ['Bird Watching'], ['Beekeeping'], ['LARPing'],
     ['Parkour'], ['Astronomy'], ['Kite Flying'], ['Bread Making'], ['Origami'], ['Photography'],
     ['Crocheting'], ['Knitting'], ['Embroidery'], ['Pottery'], ['Wood Carving'], ['Video Games'],
@@ -12,7 +12,17 @@ class UsersController < ApplicationController
     ['Creative Writing'], ['Book Club'], ['Playing an Instrument'], ['Podcast Hosting'], ['Dancing'],
     ['Computer Programming'], ['Travel'], ['Cosplaying'], ['Survivalist Prepping']]
 
+    # $categories = ['Hiking', 'Backpacking', 'Camping', 'Hunting', 'Fishing', 'Archery','Canoeing',
+    # 'Kayaking', 'Running', 'Geocaching', 'Bird Watching', 'Beekeeping', 'LARPing',
+    # 'Parkour', 'Astronomy', 'Kite Flying', 'Bread Making', 'Origami', 'Photography',
+    # 'Crocheting', 'Knitting', 'Embroidery', 'Pottery', 'Wood Carving', 'Video Games',
+    # 'Board Games', 'Chess', 'Puzzles', 'Table Tennis', 'Billiards', 'Language Learning',
+    # 'Creative Writing', 'Book Club', 'Playing an Instrument', 'Podcast Hosting', 'Dancing',
+    # 'Computer Programming', 'Travel', 'Cosplaying', 'Survivalist Prepping']
+
     @skill = Skill.new
+    # @my_hobbies = Hobby.where(user_id: current_user)
+    @hobbies = Hobby.where(user_id: 4)
   end
 
   def deck; end

@@ -1,13 +1,15 @@
 class SkillsController < ApplicationController
   before_action :find_user, only: %i[show profile deck requests]
   def create
-    raise
+    @skill = Skill.new(skill_params)
+
+    if @skill.save
+      redirect_to @profile, notice: 'Yay! 🎉 Your hobby was successfully added.'
+    else
+      render :new
+    end
   end
 
-
-  # def chef
-  #   @chef_name = @restaurant.chef_name
-  # end
   private
 
   # def user_params
@@ -18,5 +20,9 @@ class SkillsController < ApplicationController
     # @task = Task.find(params[:id])
     @user = current_user
     # @restaurant = Restaurant.find(params[:id])
+  end
+
+  def skill_params
+    params.require(:skill).permit(:category, :experience, :current_user, :user_id)
   end
 end
