@@ -6,6 +6,7 @@ class HobbiesController < ApplicationController
   end
 
   def show
+    @user = current_user
   end
 
   # def filter
