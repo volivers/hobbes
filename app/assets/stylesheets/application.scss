@@ -13,9 +13,12 @@
 @import "pages/index";
 
 body {
-  min-height: 100vh;
   width: 100%;
   position: relative;
+}
+
+.main-container {
+  min-height: 100vh;
 }
 
 .hidden {
