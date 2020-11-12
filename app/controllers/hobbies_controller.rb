@@ -1,15 +1,16 @@
 class HobbiesController < ApplicationController
-  before_action :set_hobby, only: [:show ]
+  before_action :set_hobby, only: [ :show ]
 
   def index
-    @hobbies = Hobby.all
+    if params[:query].present?
+      @hobbies = Hobby.search_by_title_description_and_category(params[:query])
+    else
+      @hobbies = Hobby.all
+    end
   end
 
   def show
   end
-
-  # def filter
-  # end
 
   def new
     @hobby = Hobby.new
