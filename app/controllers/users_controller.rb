@@ -2,7 +2,18 @@ class UsersController < ApplicationController
   before_action :find_user, only: %i[show profile deck requests]
   def show; end
 
-  def profile; end
+  def profile
+    $levels = [['Rookie', '1'], ['Good', '2'], ['Master', '3']];
+        $categories = [['Hiking'], ['Backpacking'], ['Camping'], ['Hunting'], ['Fishing'], ['Archery'],['Canoeing'],
+    ['Kayaking'], ['Running'], ['Geocaching'], ['Bird Watching'], ['Beekeeping'], ['LARPing'],
+    ['Parkour'], ['Astronomy'], ['Kite Flying'], ['Bread Making'], ['Origami'], ['Photography'],
+    ['Crocheting'], ['Knitting'], ['Embroidery'], ['Pottery'], ['Wood Carving'], ['Video Games'],
+    ['Board Games'], ['Chess'], ['Puzzles'], ['Table Tennis'], ['Billiards'], ['Language Learning'],
+    ['Creative Writing'], ['Book Club'], ['Playing an Instrument'], ['Podcast Hosting'], ['Dancing'],
+    ['Computer Programming'], ['Travel'], ['Cosplaying'], ['Survivalist Prepping']]
+
+    @skill = Skill.new
+  end
 
   def deck; end
 

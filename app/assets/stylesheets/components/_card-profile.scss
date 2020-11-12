@@ -1,15 +1,15 @@
 .card-profile {
   overflow: hidden;
-  height: 120px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  min-height: 80px;
+  //background: white;
+  //box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  align-items: center;
+  align-items: start;
 }
 
 .card-profile img {
   height: 100%;
-  width: 120px;
+  width: 80px;
   object-fit: cover;
 }
 

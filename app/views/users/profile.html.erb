@@ -6,7 +6,7 @@
         <%= image_tag "icons/add.svg" %>
       <% end %>
     </div>
-    <div class="col-6 col-lg-7">
+    <div class="col-7 col-lg-8">
       <div class="cards-hobby">
         <div class="card-hobby">
           <div class="card-hobby-top">
@@ -55,12 +55,12 @@
 
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-3">
       <div class="card-profile">
         <img class="avatar-large p-2" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
         <div class="card-profile-infos">
           <div class="card-profile-details">
-            <h2>I like to take naps.<%#<%= current_user.bio %></h2>
+            <h2><%= current_user.bio %></h2>
             <p><%= current_user.location %></p>
           </div>
           <div class="card-profile-skillset">
@@ -71,5 +71,23 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="col-6 offset-1">
+    <%= simple_form_for [@user, @skill] do |f| %>
+
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :category, as: :select, collection: $categories, selected: $categories.first %>
+        <%= f.input :experience, as: :select, collection: $levels, selected: $levels.first %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Add a new Skill", class: 'btn btn-ghost w-100 mb-2' %>
+
+      </div>
+    <% end %>
   </div>
 </div>
