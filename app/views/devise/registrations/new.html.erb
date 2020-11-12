@@ -21,6 +21,8 @@
           <%= f.input :bio,
                       autofocus: true,
                       input_html: { autocomplete: "bio" }%>
+          <%#<%= f.input :category, as: :select, collection: $categories, placeholder: 'i.e. Survivalist Prepping' %>
+          <%#<%= f.input :experience, as: :select, collection: $levels, placeholder: 'i.e. Rookie' %>
           <%= f.input :password,
                       required: true,
                       hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),

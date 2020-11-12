@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       patch "update_fields", to: "users#update_fields"
       get :profile, :deck, :requests
     end
-    resources :skills
+    resources :skills, only: [:create]
   end
   # TODO DASHBOARD ROUTES
 
