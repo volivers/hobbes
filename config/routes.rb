@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   end
   # TODO DASHBOARD ROUTES
 
-  resources :hobbies, only: [ :index, :show, :new, :create ]
-  resources :bookings, only: [ :index, :show, :new, :create ]
+
+  resources :hobbies, only: [ :index, :show, :new, :create ] do
+    resources :bookings, only: [ :index, :show, :new, :create ]
+  end
+
 end
