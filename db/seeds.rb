@@ -9,5 +9,6 @@
 puts 'Cleaning db...'
 Hobby.destroy_all
 puts 'Creating hobbies...'
+
 15.times { User.create!( username: Faker::Name.name, email: Faker::Internet.email, location: Faker::Address.city, password: Faker::Alphanumeric.alphanumeric(number: 10))}
-10.times { Hobby.create!( title: Faker::Book.title.capitalize, description: Faker::Hipster.paragraph(sentence_count: 10), level: (1..10).to_a.sample, user_id: (1..10).to_a.sample, occupancy_limit: (1..20).to_a.sample)}
+10.times { Hobby.create!( title: Faker::Book.title.capitalize, description: Faker::Hipster.paragraph(sentence_count: 10), category: Faker::Book.genre, level: (1..10).to_a.sample, user_id: (1..10).to_a.sample, occupancy_limit: (1..20).to_a.sample)}
