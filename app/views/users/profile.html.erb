@@ -4,7 +4,8 @@
     <div class="col-12">
       <h1><%= current_user.username %></h1>
       <span><%= current_user.location %></span>
-      <p class="text-md-left"><%= current_user.bio %></p>
+      <br>
+      <span class="text-lg-left"><%= current_user.bio %></span>
     </div>
   </div>
   <div class="row mt-5">
@@ -13,17 +14,17 @@
         <!--TODO if empty show info; else… -->
 
         <!--TODO loop through by level DESC-->
-        <p><span class="badge badge-pill badge-dark">5</span> <strong>Yoga</strong></p>
-        <p><span class="badge badge-pill badge-info">3</span> <strong>Chess</strong></p>
-        <p><span class="badge badge-pill badge-success">1</span> <strong>Hiking</strong></p>
+        <h6 class="badge badge-pill badge-dark">Yoga</h6>
+        <h6 class="badge badge-pill badge-info">Chess</h6>
+        <h6 class="badge badge-pill badge-success">Hiking</h6>
       </div>
       <div id="goals" class="col-6">
         <h2>Goals</h2>
         <!--TODO if empty show info; else… -->
 
         <!--TODO loop through by level DESC-->
-        <p><span class="badge badge-pill badge-dark">5</span> <strong>Chess</strong></p>
-        <p><span class="badge badge-pill badge-success">1</span> <strong>Bread Baking</strong></p>
+        <h6 class="badge badge-pill badge-dark">Chess</h6>
+        <h6 class="badge badge-pill badge-success">Bread Baking</h6>
       </div>
     </div>
     <div class="notification-actions">
