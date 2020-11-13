@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   resources :users, except: %i[index new create destroy] do
     collection do
       patch "update_fields", to: "users#update_fields"
-      get :hobbies, :deck, :requests, :skillset, :profile, :manage
+      get :profile, :deck, :requests
     end
-    resources :skills
+    resources :skills, only: [:create]
   end
   # TODO DASHBOARD ROUTES
 

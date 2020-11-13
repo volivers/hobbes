@@ -1,2 +1,25 @@
-<h1>Hobbies#new</h1>
-<p>Find me in app/views/hobbies/new.html.erb</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-12 col-sm-8 col-md-4 offset-sm-2 offset-md-4">
+      <h2 class="mb-4">New hobby</h2>
+
+      <%= simple_form_for @hobby do |f| %>
+        <div class="form-inputs">
+            <%= f.input :title, placeholder: 'My awesome hobby' %>
+            <%= f.input :description, placeholder: 'Tell more about your awesome hobby' %>
+            <%= f.input :category, as: :select, collection: $categories, selected: 'Survivalist Prepping' %>
+            <%= f.input :level, as: :select, collection: $levels, selected: 'Rookie' %>
+            <%= f.input :location, placeholder: 'The Moon' %>
+            <%= f.input :weekday, as: :select, collection: $weekdays, selected: 'Friday' %>
+            <%= f.input :recurrence, as: :select, collection: $recurrence, selected: 'Daily' %>
+            <%= f.input :occupancy_limit, input_html: { max: 4 }, placeholder: '4' %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Create hobby", class: 'btn btn-primary w-100 mb-2' %>
+          <%= link_to "Back", :back, {:class=>'btn btn-outline-primary w-100 mb-2'} %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
