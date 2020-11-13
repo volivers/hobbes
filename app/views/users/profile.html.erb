@@ -6,11 +6,6 @@
         <%= image_tag "icons/add.svg" %>
       <% end %>
     </div>
-    <%# @users.each do |user|%>
-      <p><%#= user.id %></p>
-      <p><%#= user.username %></p>
-      <p><%#= user.password %></p>
-    <%# end %>
     <div class="col-7 col-lg-8">
       <div class="cards-hobby">
         <% if @user.hobbies.any? %>
@@ -49,7 +44,11 @@
     </div>
     <div class="col-3">
       <div class="card-profile">
-        <img class="avatar-large p-2" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+        <% if current_user.photo.attached? %>
+          <%= image_tag current_user.photo, class: "avatar-large p-2", alt: "avatar-large", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+          <%= image_tag "avatars/Avatar_6.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
         <div class="card-profile-infos">
           <div class="card-profile-details">
             <h2><%= current_user.bio %></h2>
@@ -71,24 +70,6 @@
                   <% end %>
               <% end %>
             <% end %>
-            <%# VERSION B %>
-<!--             <%# if @skills.any? %>
-              <%# @skills.each do |skill| %>
-                <%# case skill.experience %>
-                  <%# when "1" %>
-                    <span class="badge badge-pill badge-lvl-one"><%#= skill.category %></span>
-                  <%# when "2" %>
-                    <span class="badge badge-pill badge-lvl-two"><%#= skill.category %></span>
-                  <%# when "3" %>
-                    <span class="badge badge-pill badge-lvl-three"><%#= skill.category %></span>
-                <%# end %>
-              <%# end %>
-            <%# end %> -->
-
-             <%# PLACEHOLDER %>
-<!--             <span class="badge badge-pill badge-lvl-one">Chess</span>
-            <span class="badge badge-pill badge-lvl-two">Traking</span>
-            <span class="badge badge-pill badge-lvl-three">Yoga</span> -->
           </div>
         </div>
       </div>

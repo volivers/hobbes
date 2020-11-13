@@ -21,7 +21,13 @@ class UsersController < ApplicationController
     # @hobbies = Hobby.where(user_id: current_user)
   end
 
-  def deck; end
+  def deck
+    @skills_cat = current_user.skills.pluck(:category)
+    @skills_level = current_user.skills.pluck(:experience)
+
+    # Skill.where(user_id: current_user)
+    @hobbies_deck = Hobby.where("category IN (?) AND level IN (?)", @skills_cat, @skills_level)
+  end
 
   def requests; end
 
