@@ -17,24 +17,27 @@
       </div>
     <% end %>
   </div>
-  <div class="cards my-4 ml-4 mr-4">
+  <div class="cards my-4 col-12">
       <% if @hobbies.any? %>
         <% @hobbies.each do |hobby| %>
           <% case hobby.level %>
             <% when 1 %>
-              <div class="card-hobby" id="hobby-explorer" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/djlmbrvcx/image/upload/v1605231758/rookie_z2txe4.jpg); border-style: none; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+              <div class="card-hobby p-3" id="hobby-explorer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/djlmbrvcx/image/upload/v1605231758/rookie_z2txe4.jpg); border-style: none; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+                <small><p style="color: white; margin-bottom: 2px;"><%= hobby.location %></p></small>
+                <h6 style="color: #c5c5c5;"><%= hobby.weekday %>, <%= hobby.recurrence %></h6>
                 <h4><%= link_to hobby.category, hobby_path(hobby) %></h4>
-                <p style="color: white;"><%= hobby.description %></p>
                 <small><span class="badge badge-pill badge-lvl-one">Rookie</span></small>
             <% when 2 %>
-              <div class="card-hobby" id="hobby-explorer" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/djlmbrvcx/image/upload/v1605231872/good_g4o4uj.jpg); border-style: none; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+              <div class="card-hobby p-3" id="hobby-explorer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/djlmbrvcx/image/upload/v1605231872/good_g4o4uj.jpg); border-style: none; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+                <small><p style="color: white; margin-bottom: 2px;"><%= hobby.location %></p></small>
+                <h6 style="color: #c5c5c5;"><%= hobby.weekday %>, <%= hobby.recurrence %></h6>
                 <h4><%= link_to hobby.category, hobby_path(hobby) %></h4>
-                <p style="color: white;"><%= hobby.description %></p>
                 <small><span class="badge badge-pill badge-lvl-two">Good</span></small>
               <% when 3 %>
-              <div class="card-hobby" id="hobby-explorer" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/djlmbrvcx/image/upload/v1605231872/master_c0yvwt.jpg); border-style: none; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+              <div class="card-hobby p-3" id="hobby-explorer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/djlmbrvcx/image/upload/v1605231872/master_c0yvwt.jpg); border-style: none; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+                <small><p style="color: white; margin-bottom: 2px;"><%= hobby.location %></p></small>
+                <h6 style="color: #c5c5c5;"><%= hobby.weekday %>, <%= hobby.recurrence %></h6>
                 <h4><%= link_to hobby.category, hobby_path(hobby) %></h4>
-                <p style="color: white;"><%= hobby.description %></p>
                 <small><span class="badge badge-pill badge-lvl-three">Master</span></small>
               <% end %>
           </div>

@@ -17,4 +17,8 @@ class Hobby < ApplicationRecord
   # validates :weekday, presence: true
   # validates :recurrence, presence: true
   validates :occupancy_limit, presence: true
+
+  def spots_left
+    self.occupancy_limit - self.bookings.count
+  end
 end
