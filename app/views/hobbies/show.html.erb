@@ -1,17 +1,31 @@
 <div class="ml-4 mr-4 d-flex">
-  <img src="https://image.freepik.com/free-vector/happy-woman-growing-houseplants-female-character-standing-cozy-home-garden-holding-pot-with-plant-vector-illustration-greenery-gardening-hobby-home-decor-botany_74855-8415.jpg" alt="Hobby image" height="350px" style="border-radius: 10px;">
+  <% case @hobby.level %>
+    <% when 1 %>
+        <img src="https://res.cloudinary.com/djlmbrvcx/image/upload/v1605231758/rookie_z2txe4.jpg" alt="Hobby image" height="350px" style="border-radius: 10px;">
+    <% when 2 %>
+        <img src="https://res.cloudinary.com/djlmbrvcx/image/upload/v1605231872/good_g4o4uj.jpg" alt="Hobby image" height="350px" style="border-radius: 10px;">
+      <% when 3 %>
+        <img src="https://res.cloudinary.com/djlmbrvcx/image/upload/v1605231872/master_c0yvwt.jpg" alt="Hobby image" height="350px" style="border-radius: 10px;">
+  <% end %>
+  
   <div class="d-flex flex-column ml-4">
-    <div class="ml-4">
-      <span class="badge badge-pill badge-dark"><%= @hobby.level %></span>
-      <h1><%= @hobby.title %></h1>
+    <div class="ml-4 mb-2">
+      <% case @hobby.level %>
+        <% when 1 %>
+            <small><span class="badge badge-pill badge-lvl-one">Rookie</span></small>
+        <% when 2 %>
+            <small><span class="badge badge-pill badge-lvl-two">Good</span></small>
+          <% when 3 %>
+            <small><span class="badge badge-pill badge-lvl-three">Master</span></small>
+      <% end %>
+      <h1><%= @hobby.category %></h1>
     </div>
 
-    <div class="ml-2">
-      <%# Just realized we're picking up the current_user location
-      and not the host's location, needs rework in the afternoon :( %>
-      <%# <p><i class="fas fa-map-marker-alt"></i> <%= @user.location %>
-      <p><i class="fas fa-ghost"></i> Hosted by </p> <%# Should we include this info? TBD %>
-      <p><i class="fas fa-users"></i> <%= @hobby.occupancy_limit %> spots left</p> <%# This is just wrong. %>
+    <div class="ml-4" style="line-height: 50%;">
+      <p><i class="fas fa-map-marker-alt"></i> <%= @hobby.location %></p>
+      <p><i class="fas fa-calendar-alt"></i> <%= @hobby.weekday %></p>
+      <p><i class="far fa-clock"></i> <%= @hobby.recurrence %></p>
+      <p><i class="fas fa-users"></i> <%= @hobby.occupancy_limit %> spots left</p>
     </div>
   </div>
 </div>
@@ -19,12 +33,11 @@
 <div class="m-4">
   <h4>What we're about</h4>
   <p><%= @hobby.description %></p>
-  
-  <div class="m-4">
-    <button type="button" class="btn">
-      <%= link_to new_booking_path, class: "btn btn-ghost btn-sm" do %>
-        Book
-      <% end %>
-    </button>
-  </div>
+</div>
+<div class="m-4 text-center">
+  <button type="button" class="btn">
+    <%= link_to new_booking_path, class: "btn btn-ghost btn-sm" do %>
+      Book this hobby now
+    <% end %>
+  </button>
 </div>
