@@ -21,4 +21,4 @@ recurrence = ['Daily', 'Weekly', 'Monthly']
 weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
 15.times { User.create!( username: Faker::Name.name, email: Faker::Internet.email, location: Faker::Address.city, password: Faker::Alphanumeric.alphanumeric(number: 10), bio: Faker::TvShows::Friends.quote)}
-9.times { Hobby.create!( title: Faker::Book.title, description: Faker::Hipster.paragraph(sentence_count: 10), category: categories.sample, level: (1..3).to_a.sample, location: Faker::Address.city, weekday: weekdays.sample, recurrence: recurrence.sample, user_id: (1..20).to_a.sample, occupancy_limit: (1..4).to_a.sample)}
+9.times { Hobby.create!( title: Faker::Book.title, description: Faker::Hipster.paragraph(sentence_count: 10), category: categories.sample, level: (1..3).to_a.sample, location: Faker::Address.city, weekday: weekdays.sample, recurrence: recurrence.sample, user_id: (1..100).to_a.sample, occupancy_limit: (1..4).to_a.sample)}

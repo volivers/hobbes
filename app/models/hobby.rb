@@ -12,10 +12,10 @@ class Hobby < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true
-  validates :category, presence: true
+  # validates :category, presence: true
   validates :level, presence: true
   validates :location, presence: true
-  validates :weekday, presence: true
-  validates :recurrence, presence: true
+  # validates :weekday, presence: true
+  # validates :recurrence, presence: true
   validates :occupancy_limit, presence: true
 end
