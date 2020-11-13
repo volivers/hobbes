@@ -3,5 +3,4 @@ class Booking < ApplicationRecord
   belongs_to :hobby
 
   validates :message, presence: true
-
 end

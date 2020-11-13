@@ -1,5 +1,6 @@
 class HobbiesController < ApplicationController
-  before_action :set_hobby, only: [ :show ]
+  before_action :set_hobby, only: [:show]
+  before_action :find_user, only: [:create]
 
   def index
     if params[:query].present?
@@ -14,25 +15,26 @@ class HobbiesController < ApplicationController
   end
 
   def new
-    $categories = [['Hiking'], ['Backpacking'], ['Camping'], ['Hunting'], ['Fishing'], ['Archery'],['Canoeing'],
-    ['Kayaking'], ['Running'], ['Geocaching'], ['Bird Watching'], ['Beekeeping'], ['LARPing'],
-    ['Parkour'], ['Astronomy'], ['Kite Flying'], ['Bread Making'], ['Origami'], ['Photography'],
-    ['Crocheting'], ['Knitting'], ['Embroidery'], ['Pottery'], ['Wood Carving'], ['Video Games'],
-    ['Board Games'], ['Chess'], ['Puzzles'], ['Table Tennis'], ['Billiards'], ['Language Learning'],
-    ['Creative Writing'], ['Book Club'], ['Playing an Instrument'], ['Podcast Hosting'], ['Dancing'],
-    ['Computer Programming'], ['Travel'], ['Cosplaying'], ['Survivalist Prepping']]
+    $categories = ['Hiking', 'Backpacking', 'Camping', 'Hunting', 'Fishing', 'Archery','Canoeing',
+    'Kayaking', 'Running', 'Geocaching', 'Bird Watching', 'Beekeeping', 'LARPing',
+    'Parkour', 'Astronomy', 'Kite Flying', 'Bread Making', 'Origami', 'Photography',
+    'Crocheting', 'Knitting', 'Embroidery', 'Pottery', 'Wood Carving', 'Video Games',
+    'Board Games', 'Chess', 'Puzzles', 'Table Tennis', 'Billiards', 'Language Learning',
+    'Creative Writing', 'Book Club', 'Playing an Instrument', 'Podcast Hosting', 'Dancing',
+    'Computer Programming', 'Travel', 'Cosplaying', 'Survivalist Prepping']
     $levels = [['Rookie', '1'], ['Good', '2'], ['Master', '3']]
-    $recurrence = [['Daily'], ['Weekly'], ['Monthly']]
-    $weekdays = [['Sunday'], ['Monday'], ['Tuesday'], ['Wednesday'], ['Thursday'], ['Friday'], ['Saturday']]
+    $recurrence = ['Daily', 'Weekly', 'Monthly']
+    $weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
     @hobby = Hobby.new
   end
 
   def create
     @hobby = Hobby.new(hobby_params)
+    @hobby.user = current_user
 
-    if @hobby.save!
-      redirect_to @hobby, notice: 'Yay! 🎉 Your hobby was successfully added.'
+    if @hobby.save
+      redirect_to profile_users_path, notice: 'Yay! 🎉 Your hobby was successfully added. Check it out 👇'
     else
       render :new
     end
@@ -40,6 +42,9 @@ class HobbiesController < ApplicationController
 
   private
 
+  def find_user
+    @user = current_user
+  end
   def set_hobby
     @hobby = Hobby.find(params[:id])
   end
