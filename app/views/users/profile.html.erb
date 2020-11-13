@@ -6,31 +6,25 @@
         <%= image_tag "icons/add.svg" %>
       <% end %>
     </div>
-
-    <% @users.each do |user|%>
-      <p><%= user.id %></p>
-      <p><%= user.username %></p>
-      <p><%= user.password %></p>
-    <% end %>
-    <% @users.each do |user|%>
-      <p><%= user.id %></p>
-      <p><%= user.username %></p>
-      <p><%= user.password %></p>
-    <% end %>
+    <%# @users.each do |user|%>
+      <p><%#= user.id %></p>
+      <p><%#= user.username %></p>
+      <p><%#= user.password %></p>
+    <%# end %>
     <div class="col-7 col-lg-8">
       <div class="cards-hobby">
-        <% if @hobbies.any? %>
-          <% @hobbies.each do |hobby| %>
+        <% if @user.hobbies.any? %>
+          <% @user.hobbies.each do |hobby| %>
           <div class="card-hobby-container">
             <%= link_to hobby_path(hobby) do %>
               <div class="card-hobby">
                 <div class="card-hobby-top">
                   <% case hobby.level %>
-                    <% when "1" %>
+                    <% when 1 %>
                       <span class="badge badge-pill badge-lvl-one">Rookie</span>
-                    <% when "2" %>
+                    <% when 2 %>
                       <span class="badge badge-pill badge-lvl-two">Good</span>
-                    <% when "3" %>
+                    <% when 3 %>
                       <span class="badge badge-pill badge-lvl-three">Master</span>
                   <% end %>
                   <div class="card-hobby-team">
@@ -40,7 +34,7 @@
                   </div>
                 </div>
                 <div class="card-hobby-bottom">
-                  <p><%= hobby.user_id %></p>
+                  <p><%= hobby.location %></p>
                   <h6><%= hobby.weekday %>, <%= hobby.recurrence %></h6>
                   <h4><%= hobby.category %></h4>
                 </div>
@@ -49,64 +43,7 @@
           </div>
           <% end %>
         <% end %>
-        <div class="card-hobby">
-          <div class="card-hobby-top">
-            <span class="badge badge-pill badge-lvl-one">Rookie</span>
-            <div class="card-hobby-team">
-              <%= image_tag "avatars/Avatar_6.jpg", class: "card-trip-user avatar-bordered" %>
-              <%= image_tag "avatars/Avatar_5.jpg", class: "card-trip-user avatar-bordered" %>
-            </div>
-          </div>
-          <div class="card-hobby-bottom">
-            <p>Remote</p>
-            <h6>Thu, Weekly</h6>
-            <h4>Chess</h4>
-          </div>
-        </div>
-        <div class="card-hobby">
-          <div class="card-hobby-top">
-            <span class="badge badge-pill badge-lvl-one">Rookie</span>
-            <div class="card-hobby-team">
-              <%= image_tag "avatars/Avatar_6.jpg", class: "card-trip-user avatar-bordered" %>
-              <%= image_tag "avatars/Avatar_5.jpg", class: "card-trip-user avatar-bordered" %>
-            </div>
-          </div>
-          <div class="card-hobby-bottom">
-            <p>Remote</p>
-            <h6>Thu, Weekly</h6>
-            <h4>Chess</h4>
-          </div>
-        </div>
-        <div class="card-hobby">
-          <div class="card-hobby-top">
-            <span class="badge badge-pill badge-lvl-two">Good</span>
-            <div class="card-hobby-team">
-              <%= image_tag "avatars/Avatar_6.jpg", class: "card-trip-user avatar-bordered" %>
-              <%= image_tag "avatars/Avatar_4.jpg", class: "card-trip-user avatar-bordered" %>
-              <%= image_tag "avatars/Avatar_5.jpg", class: "card-trip-user avatar-bordered" %>
-            </div>
-          </div>
-          <div class="card-hobby-bottom">
-            <p>Stoke Newington, London</p>
-            <h6>Sat, Monthly</h6>
-            <h4>Traking</h4>
-          </div>
-        </div>
-        <div class="card-hobby">
-          <div class="card-hobby-top">
-            <span class="badge badge-pill badge-lvl-three">Master</span>
-            <div class="card-hobby-team">
-              <%= image_tag "avatars/Avatar_6.jpg", class: "card-trip-user avatar-bordered" %>
-              <%= image_tag "avatars/Avatar_4.jpg", class: "card-trip-user avatar-bordered" %>
-              <%= image_tag "avatars/Avatar_5.jpg", class: "card-trip-user avatar-bordered" %>
-            </div>
-          </div>
-          <div class="card-hobby-bottom">
-            <p>Hackney, London</p>
-            <h6>Thu, Weekly</h6>
-            <h4>Chess</h4>
-          </div>
-        </div>
+
 
       </div>
     </div>
@@ -119,21 +56,39 @@
             <p><%= current_user.location %></p>
           </div>
           <div class="card-profile-skillset">
-            <% if @skills.any? %>
-              <% @skills.each do |skill| %>
-                <% case skill.experience %>
-                  <% when "1" %>
-                    <span class="badge badge-pill badge-lvl-one"><%= skill.category %></span>
-                  <% when "2" %>
-                    <span class="badge badge-pill badge-lvl-two"><%= skill.category %></span>
-                  <% when "3" %>
-                    <span class="badge badge-pill badge-lvl-three"><%= skill.category %></span>
-                <% end %>
+            <%# VERSION A %>
+            <% if @user.skills.blank? %>
+              Add a New Skill!
+            <% else %>
+              <% @user.skills.each do |skill| %>
+                  <% case skill.experience %>
+                    <% when "1" %>
+                      <span class="badge badge-pill badge-lvl-one"><%= skill.category %></span>
+                    <% when "2" %>
+                      <span class="badge badge-pill badge-lvl-two"><%= skill.category %></span>
+                    <% when "3" %>
+                      <span class="badge badge-pill badge-lvl-three"><%= skill.category %></span>
+                  <% end %>
               <% end %>
             <% end %>
-            <span class="badge badge-pill badge-lvl-one">Chess</span>
+            <%# VERSION B %>
+<!--             <%# if @skills.any? %>
+              <%# @skills.each do |skill| %>
+                <%# case skill.experience %>
+                  <%# when "1" %>
+                    <span class="badge badge-pill badge-lvl-one"><%#= skill.category %></span>
+                  <%# when "2" %>
+                    <span class="badge badge-pill badge-lvl-two"><%#= skill.category %></span>
+                  <%# when "3" %>
+                    <span class="badge badge-pill badge-lvl-three"><%#= skill.category %></span>
+                <%# end %>
+              <%# end %>
+            <%# end %> -->
+
+             <%# PLACEHOLDER %>
+<!--             <span class="badge badge-pill badge-lvl-one">Chess</span>
             <span class="badge badge-pill badge-lvl-two">Traking</span>
-            <span class="badge badge-pill badge-lvl-three">Yoga</span>
+            <span class="badge badge-pill badge-lvl-three">Yoga</span> -->
           </div>
         </div>
       </div>
@@ -142,19 +97,14 @@
 </div>
 <div class="row mt-5">
   <div class="col-6 offset-1">
-    <%= simple_form_for [@user, @skill] do |f| %>
+    <%= simple_form_for ([@user, @skill]) do |f| %>
 
       <%= f.error_notification %>
-
-      <div class="form-inputs">
         <%= f.input :category, as: :select, collection: @categories, selected: @categories.first %>
         <%= f.input :experience, as: :select, collection: @experience, selected: @experience.first %>
-      </div>
 
-      <div class="form-actions">
         <%= f.button :submit, "Add a new Skill", class: 'btn btn-ghost w-100 mb-2' %>
 
-      </div>
     <% end %>
   </div>
 </div>
