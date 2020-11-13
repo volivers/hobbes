@@ -2,12 +2,67 @@
 <div class="container">
   <div class="row mt-5">
     <div class="col-2 col-lg-1">
-      <%= link_to "#", class: "btn btn-hobby" do %>
+      <%= link_to new_hobby_path, class: "btn btn-hobby" do %>
         <%= image_tag "icons/add.svg" %>
       <% end %>
     </div>
+
+    <% @users.each do |user|%>
+      <p><%= user.id %></p>
+      <p><%= user.username %></p>
+      <p><%= user.password %></p>
+    <% end %>
+    <% @users.each do |user|%>
+      <p><%= user.id %></p>
+      <p><%= user.username %></p>
+      <p><%= user.password %></p>
+    <% end %>
     <div class="col-7 col-lg-8">
       <div class="cards-hobby">
+        <% if @hobbies.any? %>
+          <% @hobbies.each do |hobby| %>
+          <div class="card-hobby-container">
+            <%= link_to hobby_path(hobby) do %>
+              <div class="card-hobby">
+                <div class="card-hobby-top">
+                  <% case hobby.level %>
+                    <% when "1" %>
+                      <span class="badge badge-pill badge-lvl-one">Rookie</span>
+                    <% when "2" %>
+                      <span class="badge badge-pill badge-lvl-two">Good</span>
+                    <% when "3" %>
+                      <span class="badge badge-pill badge-lvl-three">Master</span>
+                  <% end %>
+                  <div class="card-hobby-team">
+                    <% hobby %>
+                    <%= image_tag "avatars/Avatar_6.jpg", class: "card-trip-user avatar-bordered" %>
+                    <%= image_tag "avatars/Avatar_5.jpg", class: "card-trip-user avatar-bordered" %>
+                  </div>
+                </div>
+                <div class="card-hobby-bottom">
+                  <p><%= hobby.user_id %></p>
+                  <h6><%= hobby.weekday %>, <%= hobby.recurrence %></h6>
+                  <h4><%= hobby.category %></h4>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <% end %>
+        <% end %>
+        <div class="card-hobby">
+          <div class="card-hobby-top">
+            <span class="badge badge-pill badge-lvl-one">Rookie</span>
+            <div class="card-hobby-team">
+              <%= image_tag "avatars/Avatar_6.jpg", class: "card-trip-user avatar-bordered" %>
+              <%= image_tag "avatars/Avatar_5.jpg", class: "card-trip-user avatar-bordered" %>
+            </div>
+          </div>
+          <div class="card-hobby-bottom">
+            <p>Remote</p>
+            <h6>Thu, Weekly</h6>
+            <h4>Chess</h4>
+          </div>
+        </div>
         <div class="card-hobby">
           <div class="card-hobby-top">
             <span class="badge badge-pill badge-lvl-one">Rookie</span>
@@ -64,6 +119,18 @@
             <p><%= current_user.location %></p>
           </div>
           <div class="card-profile-skillset">
+            <% if @skills.any? %>
+              <% @skills.each do |skill| %>
+                <% case skill.experience %>
+                  <% when "1" %>
+                    <span class="badge badge-pill badge-lvl-one"><%= skill.category %></span>
+                  <% when "2" %>
+                    <span class="badge badge-pill badge-lvl-two"><%= skill.category %></span>
+                  <% when "3" %>
+                    <span class="badge badge-pill badge-lvl-three"><%= skill.category %></span>
+                <% end %>
+              <% end %>
+            <% end %>
             <span class="badge badge-pill badge-lvl-one">Chess</span>
             <span class="badge badge-pill badge-lvl-two">Traking</span>
             <span class="badge badge-pill badge-lvl-three">Yoga</span>
@@ -80,8 +147,8 @@
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :category, as: :select, collection: $categories, selected: $categories.first %>
-        <%= f.input :experience, as: :select, collection: $levels, selected: $levels.first %>
+        <%= f.input :category, as: :select, collection: @categories, selected: @categories.first %>
+        <%= f.input :experience, as: :select, collection: @experience, selected: @experience.first %>
       </div>
 
       <div class="form-actions">

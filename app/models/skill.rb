@@ -3,5 +3,4 @@ class Skill < ApplicationRecord
 
   validates :category, presence: true
   validates :experience, presence: true
-  validates :seeking, presence: true
 end
