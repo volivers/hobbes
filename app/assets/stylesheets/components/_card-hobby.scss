@@ -202,3 +202,27 @@
     object-fit: none;
   }
 }
+
+#hobby-explorer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: column;
+  transition: transform .3s ease-in;
+    a {
+      margin-left: 10px;
+    }
+
+    p {
+      margin: 5px 10px 10px 10px;
+    }
+
+    .badge-pill  {
+      position: absolute;
+      top: 10px;
+    }
+}
+
+#hobby-explorer:hover {
+  transform: scale(1.02);
+}

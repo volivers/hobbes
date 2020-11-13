@@ -8,8 +8,15 @@
 @import "notification";
 @import "tabs";
 @import "search_form";
-@import "card-category";
 @import "card-profile";
 @import "card-hobby";
 @import "cards";
 @import "badge";
+
+.search-form-control {
+  transition: transform .3s ease-in;
+}
+
+.search-form-control:hover {
+  transform: scale(1.01);
+}
