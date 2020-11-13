@@ -30,8 +30,5 @@ weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 puts 'Creating hobbies...'
 18.times { Hobby.create!( title: Faker::Book.title, description: Faker::Hipster.paragraph(sentence_count: 10), category: categories.sample, level: (1..3).to_a.sample, location: Faker::Address.city, weekday: weekdays.sample, recurrence: recurrence.sample, user_id: users.ids.sample, occupancy_limit: (1..4).to_a.sample)}
 
-
 puts 'Creating skills...'
 # 50.times { Skill.create!( category: categories.sample, experience: (1..3).to_a.sample, user_id: users.ids.sample)}
-
-puts 'Creating hobbies...'

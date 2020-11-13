@@ -31,7 +31,7 @@ class HobbiesController < ApplicationController
   def create
     @hobby = Hobby.new(hobby_params)
 
-    if @hobby.save
+    if @hobby.save!
       redirect_to @hobby, notice: 'Yay! 🎉 Your hobby was successfully added.'
     else
       render :new
