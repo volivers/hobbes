@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
     <% image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png"%>
-    <span class="logo">HOBBS</span>
+    <span class="logo">HOBBES</span>
   <% end %>
   <% if user_signed_in? %>
     Hi, <%= current_user.username %>
@@ -22,7 +22,11 @@
         <%#  <%= link_to "Messages", "#", class: "nav-link" %>
         </li>-->
         <li class="nav-item dropdown">
-          <%= image_tag "avatars/Avatar_6.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% if current_user.photo.attached? %>
+              <%= image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag "avatars/Avatar_6.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to profile_users_path, class: "dropdown-item" do%>
               Dashboard

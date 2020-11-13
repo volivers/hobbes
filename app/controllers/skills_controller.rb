@@ -1,22 +1,39 @@
 class SkillsController < ApplicationController
-  before_action :find_user, only: %i[show profile deck requests]
+  before_action :find_user, only: %i[create]
   def create
-    raise
+    @skill = Skill.new(skill_params)
+    @skill.user = current_user
+    if @skill.save
+      redirect_to profile_users_path, notice: 'Yay! 🎉 Your skill was successfully added. Check it out! 👉'
+    else
+      render 'users/profile'
+    end
   end
 
-
-  # def chef
-  #   @chef_name = @restaurant.chef_name
-  # end
   private
 
-  # def user_params
-  #   params.require(:user).permit(:location, :bio, :current_password)
-  # end
-
   def find_user
-    # @task = Task.find(params[:id])
     @user = current_user
-    # @restaurant = Restaurant.find(params[:id])
+  end
+
+  def skill_params
+    params.require(:skill).permit(:category, :experience, :current_user)
   end
 end
+
+  # def create
+  #   @restaurant = Restaurant.find(params[:restaurant_id])
+  #   @review = Review.new(review_params)
+  #   @review.restaurant = @restaurant
+  #   if @review.save
+  #     redirect_to restaurant_path(@restaurant)
+  #   else
+  #     render 'restaurants/show'
+  #   end
+  # end
+
+  # private
+
+  # def review_params
+  #   params.require(:review).permit(:content)
+  # end

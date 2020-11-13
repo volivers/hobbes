@@ -1,40 +1,20 @@
-
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item"><a href="#">Library</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Data</li>
-  </ol>
-</nav>
-
 <div class="container">
   <div class="row mt-5">
     <div class="col-12 col-sm-8 col-md-4 offset-sm-2 offset-md-4">
-      <h2 class="mb-4">Confirmation and reservation</h2>
-     </div>
-
-
-
-<%= simple_form_for [@hobby, @booking]  do |f| %>
+      <h2 class="mb-4">New booking</h2>
+        <%= simple_form_for [@hobby, @booking]  do |f| %>
         <%= f.error_notification %>
-
         <div class="form-inputs">
-
           <%= f.input :message,
                       as: :text,
                       label: "Message",
                       required: true,
                       autofocus: true
                       %>
-
-
         </div>
-
         <div class="form-actions">
           <%= f.button :submit, "Send a request", class: 'btn btn-primary w-100 mb-2' %>
         </div>
       <% end %>
-
-
   </div>
 </div>

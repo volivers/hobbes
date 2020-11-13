@@ -5,13 +5,12 @@
 
       <%= simple_form_for @hobby do |f| %>
         <div class="form-inputs">
-            <%= f.input :title, placeholder: 'My awesome hobby' %>
+            <%= f.input :category, required: true, as: :select, collection: $categories, selected: 'Survivalist Prepping' %>
             <%= f.input :description, placeholder: 'Tell more about your awesome hobby' %>
-            <%= f.input :category, as: :select, collection: $categories, selected: 'Survivalist Prepping' %>
             <%= f.input :level, as: :select, collection: $levels, selected: 'Rookie' %>
             <%= f.input :location, placeholder: 'The Moon' %>
-            <%= f.input :weekday, as: :select, collection: $weekdays, selected: 'Friday' %>
-            <%= f.input :recurrence, as: :select, collection: $recurrence, selected: 'Daily' %>
+            <%= f.input :weekday, required: true, as: :select, collection: $weekdays, selected: 'Fri' %>
+            <%= f.input :recurrence, required: true, as: :select, collection: $recurrence, selected: 'Daily' %>
             <%= f.input :occupancy_limit, input_html: { max: 4 }, placeholder: '4' %>
         </div>
 
