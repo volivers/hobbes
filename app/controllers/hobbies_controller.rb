@@ -1,6 +1,6 @@
 class HobbiesController < ApplicationController
-  before_action :set_hobby, only: [ :show ]
-  before_action :find_user, only: [ :create ]
+  before_action :set_hobby, only: [:show]
+  before_action :find_user, only: [:create]
 
   def index
     if params[:query].present?
