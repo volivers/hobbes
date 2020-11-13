@@ -38,14 +38,3 @@ document.addEventListener('turbolinks:load', () => {
 // document.addEventListener('tab-underlined', () => {
 
 // })
-
-const tabs = document.querySelectorAll("ul.tabs-underlined li a");
-tabs.forEach((tab) => {
-  tab.classList.toggle("active");
-  console.log(tab);
-});
-
-
-element.addEventListener(eventType, (event) => {
-  // Do something (callback)
-});
