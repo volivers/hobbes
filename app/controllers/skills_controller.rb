@@ -4,7 +4,7 @@ class SkillsController < ApplicationController
     @skill = Skill.new(skill_params)
     @skill.user = current_user
     if @skill.save
-      redirect_to profile_users_path, notice: 'Yay! 🎉 Your skill was successfully added.'
+      redirect_to profile_users_path, notice: 'Yay! 🎉 Your skill was successfully added. Check it out! 👉'
     else
       render 'users/profile'
     end

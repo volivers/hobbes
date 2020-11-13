@@ -1,5 +1,5 @@
 class Hobby < ApplicationRecord
-  # belongs_to :user
+  belongs_to :user
   has_many :bookings
   has_many :users, through: :bookings
 
@@ -10,7 +10,6 @@ class Hobby < ApplicationRecord
       tsearch: { prefix: true }
     }
 
-  validates :title, presence: true
   validates :description, presence: true
   # validates :category, presence: true
   validates :level, presence: true

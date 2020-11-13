@@ -7,7 +7,7 @@
       <% when 3 %>
         <img src="https://res.cloudinary.com/djlmbrvcx/image/upload/v1605231872/master_c0yvwt.jpg" alt="Hobby image" height="350px" style="border-radius: 10px;">
   <% end %>
-  
+
   <div class="d-flex flex-column ml-4">
     <div class="ml-4 mb-2">
       <% case @hobby.level %>
@@ -36,7 +36,7 @@
 </div>
 <div class="m-4 text-center">
   <button type="button" class="btn">
-    <%= link_to new_booking_path, class: "btn btn-ghost btn-sm" do %>
+    <%= link_to new_hobby_booking_path(@hobby.id), class: "btn btn-ghost btn-sm" do %>
       Book this hobby now
     <% end %>
   </button>
