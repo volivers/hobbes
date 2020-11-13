@@ -1,6 +1,6 @@
 class HobbiesController < ApplicationController
-  before_action :set_hobby, only: [ :show ]
-  before_action :find_user, only: [ :create ]
+  before_action :set_hobby, only: [:show]
+  before_action :find_user, only: [:create]
 
   def index
     if params[:query].present?
@@ -34,7 +34,7 @@ class HobbiesController < ApplicationController
     @hobby.user = current_user
 
     if @hobby.save
-      redirect_to @hobby, notice: 'Yay! 🎉 Your hobby was successfully added.'
+      redirect_to profile_users_path, notice: 'Yay! 🎉 Your hobby was successfully added. Check it out 👇'
     else
       render :new
     end
@@ -48,6 +48,9 @@ class HobbiesController < ApplicationController
 
   private
 
+  def find_user
+    @user = current_user
+  end
   def set_hobby
     @hobby = Hobby.find(params[:id])
   end

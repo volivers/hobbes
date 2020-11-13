@@ -10,7 +10,6 @@ class Hobby < ApplicationRecord
       tsearch: { prefix: true }
     }
 
-  validates :title, presence: true
   validates :description, presence: true
   # validates :category, presence: true
   validates :level, presence: true
