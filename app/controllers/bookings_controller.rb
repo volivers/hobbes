@@ -4,13 +4,17 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @hobby = Hobby.find(params[:hobby_id])
+
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
-    if @booking.save!
-      redirect_to @booking, notice: 'Yay! 🎉 You made your request.'
+    @booking.hobby_id = Hobby.find(params[:hobby_id]).id
+    @hobby = Hobby.find(params[:hobby_id])
+  if @booking.save!
+      redirect_to hobbies_path, notice: 'Yay! 🎉 You sent your request.'
     else
       render :new
     end
@@ -29,7 +33,7 @@ private
   end
 
   def booking_params
-    params.require(:booking).permit(:time_slot, :hobby_id)
+    params.require(:booking).permit(:hobby_id, :message)
   end
 
 
