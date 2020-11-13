@@ -1,2 +1,37 @@
 <%= render "tabs" %>
-<h1><%= @user.username %>'s Deck</h1>
+
+<div class="d-flex justify-content-center align-items-center flex-column">
+  <div class="cards my-4 col-12">
+      <% if @hobbies_deck.any? %>
+        <% @hobbies_deck.each do |hobby| %>
+        <%= link_to hobby_path(hobby) do %>
+          <% case hobby.level %>
+            <% when 1 %>
+              <div class="card-hobby p-3" id="hobby-explorer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/djlmbrvcx/image/upload/v1605231758/rookie_z2txe4.jpg); border-style: none; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+                <small><p style="color: white; margin-bottom: 2px;"><%= hobby.location %></p></small>
+                <h6 style="color: #c5c5c5;"><%= hobby.weekday %>, <%= hobby.recurrence %></h6>
+                <h4 style="color: white">hobby.category</h4>
+                <small><span class="badge badge-pill badge-lvl-one">Rookie</span></small>
+            <% when 2 %>
+              <div class="card-hobby p-3" id="hobby-explorer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/djlmbrvcx/image/upload/v1605231872/good_g4o4uj.jpg); border-style: none; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+                <small><p style="color: white; margin-bottom: 2px;"><%= hobby.location %></p></small>
+                <h6 style="color: #c5c5c5;"><%= hobby.weekday %>, <%= hobby.recurrence %></h6>
+                <h4 style="color: white"><%= hobby.category%></h4>
+                <small><span class="badge badge-pill badge-lvl-two">Good</span></small>
+              <% when 3 %>
+              <div class="card-hobby p-3" id="hobby-explorer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/djlmbrvcx/image/upload/v1605231872/master_c0yvwt.jpg); border-style: none; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+                <small><p style="color: white; margin-bottom: 2px;"><%= hobby.location %></p></small>
+                <h6 style="color: #c5c5c5;"><%= hobby.weekday %>, <%= hobby.recurrence %></h6>
+                <h4 style="color: white"><%= hobby.category %></h4>
+                <small><span class="badge badge-pill badge-lvl-three">Master</span></small>
+              <% end %>
+          </div>
+          <% end %>
+        <% end %>
+  </div>
+  <div class="container-empty-state">
+      <% else %>
+        <h5 class="empty-state mt-4">No hobbies found, please try again 👻</h5>
+      <% end %>
+  </div>
+</div>
