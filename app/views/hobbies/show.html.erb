@@ -1,38 +1,58 @@
-<div class="ml-4 mr-4 d-flex">
-  <% case @hobby.level %>
-    <% when 1 %>
-        <img src="https://res.cloudinary.com/djlmbrvcx/image/upload/v1605231758/rookie_z2txe4.jpg" alt="Hobby image" height="350px" style="border-radius: 10px;">
-    <% when 2 %>
-        <img src="https://res.cloudinary.com/djlmbrvcx/image/upload/v1605231872/good_g4o4uj.jpg" alt="Hobby image" height="350px" style="border-radius: 10px;">
-      <% when 3 %>
-        <img src="https://res.cloudinary.com/djlmbrvcx/image/upload/v1605231872/master_c0yvwt.jpg" alt="Hobby image" height="350px" style="border-radius: 10px;">
-  <% end %>
-
-  <div class="d-flex flex-column ml-4">
+<div class="row">
+  <div class="col-9">
     <div class="ml-4 mb-2">
       <% case @hobby.level %>
         <% when 1 %>
             <small><span class="badge badge-pill badge-lvl-one">Rookie</span></small>
         <% when 2 %>
             <small><span class="badge badge-pill badge-lvl-two">Good</span></small>
-          <% when 3 %>
+        <% when 3 %>
             <small><span class="badge badge-pill badge-lvl-three">Master</span></small>
       <% end %>
       <h1><%= @hobby.category %></h1>
     </div>
-
     <div class="ml-4" style="line-height: 50%;">
       <p><i class="fas fa-map-marker-alt"></i> <%= @hobby.location %></p>
       <p><i class="fas fa-calendar-alt"></i> <%= @hobby.weekday %></p>
       <p><i class="far fa-clock"></i> <%= @hobby.recurrence %></p>
-      <p><i class="fas fa-users"></i> <%= @hobby.occupancy_limit %> spots left</p>
+      <p><i class="fas fa-users"></i> <%= @hobby.spots_left %> spots left</p>
+    </div>
+    <div class="m-4 py-4 w-50">
+      <h4>What we're about</h4>
+      <p><%= @hobby.description %></p>
     </div>
   </div>
-</div>
-
-<div class="m-4">
-  <h4>What we're about</h4>
-  <p><%= @hobby.description %></p>
+  <div class="col-3 mt-5">
+    <h4>Who's in</h4>
+    <% @hobby.users.each do |user| %>
+      <div class="card-profile">
+        <% if user.photo.attached? %>
+          <%= image_tag user.photo, class: "avatar-large p-2" %>
+        <% else %>
+          <%= image_tag "avatars/Avatar_6.jpg", class: "avatar-large p-2" %>
+        <% end %>
+        <div class="card-profile-infos">
+          <div class="card-profile-details">
+            <h2><%= user.bio %></h2>
+            <p><%= user.location %></p>
+          </div>
+          <div class="card-profile-skillset">
+            <%# VERSION A %>
+              <% user.skills.each do |skill| %>
+                  <% case skill.experience %>
+                    <% when "1" %>
+                      <span class="badge badge-pill badge-lvl-one"><%= skill.category %></span>
+                    <% when "2" %>
+                      <span class="badge badge-pill badge-lvl-two"><%= skill.category %></span>
+                    <% when "3" %>
+                      <span class="badge badge-pill badge-lvl-three"><%= skill.category %></span>
+                  <% end %>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
 </div>
 <div class="m-4 text-center">
   <button type="button" class="btn">
