@@ -119,6 +119,22 @@
             <p><%= current_user.location %></p>
           </div>
           <div class="card-profile-skillset">
+            <%# VERSION A %>
+            <% if @user.skills.blank? %>
+              Add a New Skill!
+            <% else %>
+              <% @user.skills.each do |skill| %>
+                  <% case skill.experience %>
+                    <% when "1" %>
+                      <span class="badge badge-pill badge-lvl-one"><%= skill.category %></span>
+                    <% when "2" %>
+                      <span class="badge badge-pill badge-lvl-two"><%= skill.category %></span>
+                    <% when "3" %>
+                      <span class="badge badge-pill badge-lvl-three"><%= skill.category %></span>
+                  <% end %>
+              <% end %>
+            <% end %>
+            <%# VERSION B %>
             <% if @skills.any? %>
               <% @skills.each do |skill| %>
                 <% case skill.experience %>
@@ -131,6 +147,8 @@
                 <% end %>
               <% end %>
             <% end %>
+
+             <%# PLACEHOLDER %>
             <span class="badge badge-pill badge-lvl-one">Chess</span>
             <span class="badge badge-pill badge-lvl-two">Traking</span>
             <span class="badge badge-pill badge-lvl-three">Yoga</span>
@@ -142,19 +160,14 @@
 </div>
 <div class="row mt-5">
   <div class="col-6 offset-1">
-    <%= simple_form_for [@user, @skill] do |f| %>
+    <%= simple_form_for ([@user, @skill]) do |f| %>
 
       <%= f.error_notification %>
-
-      <div class="form-inputs">
         <%= f.input :category, as: :select, collection: @categories, selected: @categories.first %>
         <%= f.input :experience, as: :select, collection: @experience, selected: @experience.first %>
-      </div>
 
-      <div class="form-actions">
         <%= f.button :submit, "Add a new Skill", class: 'btn btn-ghost w-100 mb-2' %>
 
-      </div>
     <% end %>
   </div>
 </div>

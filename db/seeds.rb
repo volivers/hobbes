@@ -10,9 +10,11 @@ users = User.all
 # @users.each |user| {user.id}
 
 puts 'Cleaning db...'
+Booking.destroy_all
 Hobby.destroy_all
 # User.destroy_all
 # Skill.destroy_all
+puts 'Cleaned Hobbies...'
 
 categories = ['Hiking', 'Backpacking', 'Camping', 'Hunting', 'Fishing', 'Archery','Canoeing',
 'Kayaking', 'Running', 'Geocaching', 'Bird Watching', 'Beekeeping', 'LARPing',
@@ -22,7 +24,7 @@ categories = ['Hiking', 'Backpacking', 'Camping', 'Hunting', 'Fishing', 'Archery
 'Creative Writing', 'Book Club', 'Playing an Instrument', 'Podcast Hosting', 'Dancing',
 'Computer Programming', 'Travel', 'Cosplaying', 'Survivalist Prepping']
 recurrence = ['Daily', 'Weekly', 'Monthly']
-weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 # puts 'Creating users...'
 # 15.times { User.create!( username: Faker::Name.name, email: Faker::Internet.email, location: Faker::Address.city, password: 123456, bio: Faker::TvShows::Friends.quote)}
 puts 'Creating hobbies...'

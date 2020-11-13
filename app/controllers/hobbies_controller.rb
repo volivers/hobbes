@@ -14,16 +14,16 @@ class HobbiesController < ApplicationController
   end
 
   def new
-    $categories = [['Hiking'], ['Backpacking'], ['Camping'], ['Hunting'], ['Fishing'], ['Archery'],['Canoeing'],
-    ['Kayaking'], ['Running'], ['Geocaching'], ['Bird Watching'], ['Beekeeping'], ['LARPing'],
-    ['Parkour'], ['Astronomy'], ['Kite Flying'], ['Bread Making'], ['Origami'], ['Photography'],
-    ['Crocheting'], ['Knitting'], ['Embroidery'], ['Pottery'], ['Wood Carving'], ['Video Games'],
-    ['Board Games'], ['Chess'], ['Puzzles'], ['Table Tennis'], ['Billiards'], ['Language Learning'],
-    ['Creative Writing'], ['Book Club'], ['Playing an Instrument'], ['Podcast Hosting'], ['Dancing'],
-    ['Computer Programming'], ['Travel'], ['Cosplaying'], ['Survivalist Prepping']]
+    $categories = ['Hiking', 'Backpacking', 'Camping', 'Hunting', 'Fishing', 'Archery','Canoeing',
+    'Kayaking', 'Running', 'Geocaching', 'Bird Watching', 'Beekeeping', 'LARPing',
+    'Parkour', 'Astronomy', 'Kite Flying', 'Bread Making', 'Origami', 'Photography',
+    'Crocheting', 'Knitting', 'Embroidery', 'Pottery', 'Wood Carving', 'Video Games',
+    'Board Games', 'Chess', 'Puzzles', 'Table Tennis', 'Billiards', 'Language Learning',
+    'Creative Writing', 'Book Club', 'Playing an Instrument', 'Podcast Hosting', 'Dancing',
+    'Computer Programming', 'Travel', 'Cosplaying', 'Survivalist Prepping']
     $levels = [['Rookie', '1'], ['Good', '2'], ['Master', '3']]
-    $recurrence = [['Daily'], ['Weekly'], ['Monthly']]
-    $weekdays = [['Sunday'], ['Monday'], ['Tuesday'], ['Wednesday'], ['Thursday'], ['Friday'], ['Saturday']]
+    $recurrence = ['Daily', 'Weekly', 'Monthly']
+    $weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
     @hobby = Hobby.new
   end
